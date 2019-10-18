@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @foodplace.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @foodplace.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @foodplace.address %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @foodplace.score %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @foodplace.phone %>
+</p>
+
+
+
+
+<div class="field">
+  <h3>Comentarios</h3>
+  <%= render "comments/form" %>
+  <ul>
+    <% @foodplace.comments.each do |comment|%>
+      <li>
+        <%= comment.body %> - <%= comment.user.email %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+<%= link_to 'Edit', edit_foodplace_path(@foodplace) %> |
+<%= link_to 'Back', foodplaces_path %>
